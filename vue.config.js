@@ -1,7 +1,7 @@
 const resolve = dir => require('path').join(__dirname, dir);
 module.exports = {
-  publicPath:'/testurl/',//设置基URL，testurl是部署时项目的文件夹目录
-  outputDir:'dist/testurl',//输出目录，默认dist
+  publicPath:'/blog/',//设置基URL，testurl是部署时项目的文件夹目录
+  outputDir:'dist/blog',//输出目录，默认dist
   chainWebpack: config => {
     config.resolve.alias
       //@,是cli 3中默认指向了src，但是只能用于导入模板，不能用于定位资源文件（图片、css、js等）

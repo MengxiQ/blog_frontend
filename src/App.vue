@@ -1,28 +1,56 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <div class="homeNarbar" :class="{navbarToTop:isNavTop}"><navbar></navbar></div>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import navbar from "@/components/comm/navbar";
+  export default {
+    components:{
+      navbar
+    },
+    data() {
+      return {
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+      }
+    },
+    computed:{
+      isNavTop(){
+        return (this.$route.path !=='/blog' && this.$route.path !=='/blog/')
+      }
+    }
   }
-}
-</script>
 
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "assets/css/base.css";
+  #app {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    background-color: #fafafa;
+  }
+  .active{
+    background-color:var(--color-tint);
+    color: #fafafa;
+  }
+  .homeNarbar{
+    position: absolute;
+    width: 380px;
+    top: 228px;
+    right: 0;
+  }
+  .navbarToTop{
+    top:0
+  }
+  @media only screen and (max-width: 500px) {
+    .homeNarbar{
+      width: 100%;
+      left: 0;
+      right: 0;
+  }
+  }
 </style>
